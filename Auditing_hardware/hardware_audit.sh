@@ -6,32 +6,6 @@ print_section_header() {
     echo "$1"
     echo "--------------------------------"
 }
-
-# Function to print key-value pairs with highlighting
-print_key_value() {
-    key="$1"
-    value="$2"
-    expected="$3"
-
-    if [ "$value" != "$expected" ]; then
-        echo -e "\e[31m$key:\e[0m $value (Expected: $expected)"
-    else
-        echo "$key: $value"
-    fi
-}
-
-# Function to print list with highlighting
-print_list() {
-    header="$1"
-    shift
-    list=("$@")
-
-    echo "$header:"
-    for item in "${list[@]}"; do
-        echo "- $item"
-    done
-}
-
 # Server Uptime
 print_section_header "Server Uptime"
 uptime
@@ -44,7 +18,7 @@ last reboot | head -n 1
 print_section_header "Server Local Time Zone"
 print_key_value "Time Zone" "$(date +%Z)" "IST"
 
-# Last 10 installed packages with dates
+# The last 10 installed packages with dates for Linux use rpm 
 print_section_header "Last 10 installed packages with dates"
 rpm -qa --last | head -n 10
 
