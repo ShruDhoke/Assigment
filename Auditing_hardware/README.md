@@ -1,3 +1,5 @@
+Follow the below instructions to run this script
+
 1). Open the VI editor and Copy Paste the hardware_audit.sh File
 
 2). Run the below Command to execute the output 
